@@ -20,6 +20,10 @@ function Movie({ addToSavedList }) {
       .then(res =>setMovie(res.data))
       .catch(err => console.log(err.response));
   };
+  const handleUpdate = e => {
+    e.preventDefault();
+    props.history.push(`/update-form/${item.id}`);
+  };
 
 
   const saveMovie = () => {
@@ -44,6 +48,9 @@ function Movie({ addToSavedList }) {
       <div className='delete-button' onClick={deleteMovie}>
         Delete
       </div>
+      <button onClick={handleUpdate} className="md-button">
+        Edit Movie
+      </button>
     </div>
   );
 }
