@@ -14,15 +14,16 @@ function Movie({ addToSavedList }) {
       .catch(err => console.log(err.response));
   };
 
-  const deleteMovie = id => {
+  const handleDelete = e => {
+    e.preventDefault();
     axios
-      .delete(`http://localhost:5000/api/movies/${id}`)  
+      .delete(`http://localhost:5000/api/movies/${e.id}`)  
       .then(res =>setMovie(res.data))
       .catch(err => console.log(err.response));
   };
   // const handleUpdate = e => {
   //   e.preventDefault();
-  //   props.history.push(`/update-movie/${item.id}`);
+  //   history.push(`/update-movie/${id}`);
   // };
 
 
@@ -45,7 +46,7 @@ function Movie({ addToSavedList }) {
       <div className='save-button' onClick={saveMovie}>
         Save
       </div>
-      <div className='delete-button' onClick={deleteMovie}>
+      <div className='delete-button' onClick={handleDelete}>
         Delete Movie
       </div>
       {/* <button onClick={handleUpdate} className="md-button">
