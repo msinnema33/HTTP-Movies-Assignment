@@ -31,7 +31,7 @@ const MovieUpdate = props => {
     
         setItem({
           ...item,
-          [ev.target.name]: value
+          [e.target.name]: value
         });
       };  
 
