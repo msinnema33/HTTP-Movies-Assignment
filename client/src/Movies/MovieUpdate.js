@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const initialItem = {
-    id: '',
     title: '',
     director: '',
     metascore: '',
@@ -45,7 +44,7 @@ const MovieUpdate = props => {
             // That's not always the case. Sometimes you need to build your
             // own updated array
             props.setItems(res.data);
-            props.history.push(`/item-list/${id}`);
+            props.history.push(`/movies/${id}`);
           })
           .catch(err => console.log(err));
       };  

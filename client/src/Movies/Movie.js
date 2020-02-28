@@ -23,7 +23,7 @@ function Movie({ addToSavedList }) {
   };
   const handleUpdate = e => {
     e.preventDefault();
-    props.history.push(`/update-movie/${item.id}`);
+    // props.history.push(`/update-movie/${item.id}`);
   };
 
 
