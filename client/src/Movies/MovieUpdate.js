@@ -24,22 +24,28 @@ const MovieUpdate = props => {
       const changeHandler = e => {
         e.persist();
         let value = e.target.value;
+        let stars = e.target.value;
         if (e.target.name === 'metascore') {
           value = parseInt(value, 10);
+        }
+        if (e.target.stars === 'string') {
+            stars = stars.split(',');
         }
     
         setItem({
           ...item,
-          [e.target.name]: value
+          [e.target.name]: value,
+          [e.target.name]: stars
+
         });
 
-        if(e.target.stars === 'string') {
-            arr = string.split(','); 
-        }
-        setItem((
-            ...item,
-            stars: arr
-        ));
+        // if(e.target.stars === 'string') {
+        //     stars = string.split(','); 
+        // }
+        // setItem((
+        //     ...item,
+        //     [e.target.stars]: arr
+        // ));
       };  
 
       const handleSubmit = e => {
