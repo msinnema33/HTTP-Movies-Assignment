@@ -19,7 +19,9 @@ function Movie({ addToSavedList }, props) {
     axios
       .delete(`http://localhost:5000/api/movies/${e.id}`)  
       .then(res =>{console.log(res)
-        // setMovie(movie.filter(item => item.id !== e.id))
+        const arr = props.movieList.filter((movie)=>`${movie.id}` !==e.id)
+        console.log(arr)
+        props.setMovie(arr)
         history.push('/')
       })
         
