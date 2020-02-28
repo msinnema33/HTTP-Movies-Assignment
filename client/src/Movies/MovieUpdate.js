@@ -15,6 +15,7 @@ const MovieUpdate = props => {
 
     useEffect(() => {
         const itemToUpdate = props.items.find(thing => `${thing.id}` === id);
+        // console.log(props)
     
         if (itemToUpdate) {
           setItem(itemToUpdate);

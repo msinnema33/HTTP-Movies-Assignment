@@ -18,9 +18,15 @@ function Movie({ addToSavedList }, props) {
     e.preventDefault();
     axios
       .delete(`http://localhost:5000/api/movies/${e.id}`)  
-      .then(res =>setMovie(res.data))
+      .then(res =>{console.log(res)
+        // setMovie(movie.filter(item => item.id !== e.id))
+        history.push('/')
+      })
+        
+      // setMovie(res.data))
+    
       // history.push('/')
-      .catch(err => console.log(err.response));
+      .catch(err => console.log(err));
   };
   const handleUpdate = e => {
     e.preventDefault();
