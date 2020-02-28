@@ -75,3 +75,15 @@ body {
   color: red;
   text-align: center;
 }
+.delete-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: red;
+  cursor: pointer;
+}
+.edit-button {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: aqua;
+  cursor: pointer;
+}
