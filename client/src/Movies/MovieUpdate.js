@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const initialItem = {
-    id: 5,
-    title: "Tombstone",
-    director: 'George P Cosmatos',
-    metascore: 89,
-    stars: ['Kurt Russell', 'Bill Paxton', 'Sam Elliot'],
+    id: '',
+    title: '',
+    director: '',
+    metascore: '',
+    stars: [],
 }
 
 const MovieUpdate = props => {
@@ -25,7 +25,7 @@ const MovieUpdate = props => {
       const changeHandler = e => {
         e.persist();
         let value = e.target.value;
-        if (e.target.name === 'price') {
+        if (e.target.name === 'metascore') {
           value = parseInt(value, 10);
         }
     

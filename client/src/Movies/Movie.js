@@ -21,10 +21,10 @@ function Movie({ addToSavedList }) {
       .then(res =>setMovie(res.data))
       .catch(err => console.log(err.response));
   };
-  // const handleUpdate = e => {
-  //   e.preventDefault();
-  //   history.push(`/update-movie/${id}`);
-  // };
+  const handleUpdate = e => {
+    e.preventDefault();
+    props.history.push(`/update-movie/${item.id}`);
+  };
 
 
   const saveMovie = () => {
@@ -49,9 +49,9 @@ function Movie({ addToSavedList }) {
       <button onClick={handleDelete} className='delete-button'>
       Delete Movie
       </button>
-      {/* <button onClick={handleUpdate} className="edit-button">
+      <button onClick={handleUpdate} className="edit-button">
         Edit Movie
-      </button> */}
+      </button>
     </div>
   );
 }
