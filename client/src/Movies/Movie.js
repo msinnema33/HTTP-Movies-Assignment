@@ -24,17 +24,12 @@ function Movie({ addToSavedList }, props) {
         props.setMovie(arr)
         history.push('/')
       })
-        
-      // setMovie(res.data))
-    
-      // history.push('/')
       .catch(err => console.log(err));
   };
   const handleUpdate = e => {
     e.preventDefault();
     history.push(`/update-movie/${movie.id}`);
   };
-
 
   const saveMovie = () => {
     addToSavedList(movie);

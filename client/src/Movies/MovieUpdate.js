@@ -6,7 +6,7 @@ const initialItem = {
     title: '',
     director: '',
     metascore: '',
-    stars: [],
+    stars: '',
 }
 
 const MovieUpdate = props => {
@@ -15,9 +15,7 @@ const MovieUpdate = props => {
 
     useEffect(() => {
         const itemToUpdate = props.items.find(thing => `${thing.id}` === id);
-        // console.log(props)
-    
-        if (itemToUpdate) {
+         if (itemToUpdate) {
           setItem(itemToUpdate);
         }
       }, [props.items, id]);
@@ -37,27 +35,14 @@ const MovieUpdate = props => {
           ...item,
           [e.target.name]: value,
           [e.target.name]: stars
-
         });
-
-        // if(e.target.stars === 'string') {
-        //     stars = string.split(','); 
-        // }
-        // setItem((
-        //     ...item,
-        //     [e.target.stars]: arr
-        // ));
       };  
 
       const handleSubmit = e => {
         e.preventDefault();
-        // make a PUT request to edit the item
         axios
           .put(`http://localhost:5000/items/${id}`, item)
           .then(res => {
-            // res.data is the FULL array with the updated item
-            // That's not always the case. Sometimes you need to build your
-            // own updated array
             props.setItems(res.data);
             props.history.push(`/movies/${id}`);
           })
