@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
-function Movie({ addToSavedList }) {
+function Movie({ addToSavedList }, props) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
-
+  const history = useHistory();
   const fetchMovie = id => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
@@ -19,11 +19,12 @@ function Movie({ addToSavedList }) {
     axios
       .delete(`http://localhost:5000/api/movies/${e.id}`)  
       .then(res =>setMovie(res.data))
+      history.push('/')
       .catch(err => console.log(err.response));
   };
   const handleUpdate = e => {
     e.preventDefault();
-    // props.history.push(`/update-movie/${item.id}`);
+    history.push(`/update-movie/${movie.id}`);
   };
 
 

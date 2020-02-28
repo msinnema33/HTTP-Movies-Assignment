@@ -32,6 +32,14 @@ const MovieUpdate = props => {
           ...item,
           [e.target.name]: value
         });
+
+        if(e.target.stars === 'string') {
+            arr = string.split(','); 
+        }
+        setItem((
+            ...item,
+            stars: arr
+        ));
       };  
 
       const handleSubmit = e => {
