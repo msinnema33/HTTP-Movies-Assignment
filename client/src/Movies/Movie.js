@@ -14,18 +14,29 @@ function Movie({ addToSavedList }, props) {
       .catch(err => console.log(err.response));
   };
 
-  const handleDelete = e => {
-    e.preventDefault();
+  const handleDelete = event => {
     axios
-      .delete(`http://localhost:5000/api/movies/${e.id}`)  
-      .then(res =>{console.log(res)
-        const arr = props.movieList.filter((item)=>`${item.id}` !==e.id)
-        console.log(arr)
-        props.setMovie(arr)
-        history.push('/')
-      })
-      .catch(err => console.log(err));
+      .delete(`http://localhost:5000/api/movies/${match.params.id}`)
+      .then(res => {
+        console.log(res);
+        setMovie(null);
+        // props.setUpdate(!props.update);
+        history.push("/");
+      });
   };
+
+  // const handleDelete = e => {
+  //   e.preventDefault();
+  //   axios
+  //     .delete(`http://localhost:5000/api/movies/${e.id}`)  
+  //     .then(res =>{console.log(res)
+  //       const arr = props.movieList.filter((item)=>`${item.id}` !==e.id)
+  //       console.log(arr)
+  //       props.setMovie(arr)
+  //       history.push('/')
+  //     })
+  //     .catch(err => console.log(err));
+  // };
   const handleUpdate = e => {
     e.preventDefault();
     history.push(`/update-movie/${movie.id}`);
